@@ -66,8 +66,6 @@ function Voice(){
     
     const recOnResut = (event) => {
       const wordlocal = event.results[0][0].transcript
-      console.log(event.results[0][0])
-      console.log(leastDistance(['commence','start'],wordlocal))
       if(leastDistance(['commence','start'],wordlocal) < 3){
         setTimer(true)
       }

@@ -54,21 +54,10 @@ code {
   }
 }
 
-#root{
-  max-height: 100vh;
-  overflow: hidden;
-}
-
-
-
 .voiceContainer{
   display: flex;
   flex-direction: column;
   background-color: hsl(0,0%,5%);
-  min-height: 100vh;
-  min-width: 100vw;
-  gap: 8rem;
-  padding: 8rem 0 0;
 }
 
 .voiceContainer *{

@@ -10,7 +10,6 @@ const pages = ['Location', 'Voice'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [currentComponent, setCurrentComponent] = React.useState('Location');
   const [intervalId, setIntervalId] = useState(null);
   const [notifEnabled, setNotifEnabled] = useState(false);
 
@@ -59,80 +58,53 @@ function ResponsiveAppBar() {
     };
   }, [intervalId]);
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleMenuItemClick = (componentName) => {
-    setCurrentComponent(componentName);
-    handleCloseNavMenu();
-  };
-
-  // Cette fonction détermine quel composant rendre
-  const renderComponent = () => {
-    switch (currentComponent) {
-      case 'Location':
-        return <Location />;
-      case 'Voice':
-        return <Voice />;
-      default:
-        return <Typography variant="h6" color="inherit">Select a feature from the navbar</Typography>;
-      // Un message par défaut ou autre chose peut aller ici
-    }
-  };
   return (
     <div>
-      <AppBar position="static" style={{ backgroundColor: '#9e9e9e' }}>
-  <Container maxWidth="xl">
-    <Toolbar disableGutters>
-      <img src={mdsIcon} alt="mds" style={{ width: "90px", height: "90px" }} />
-      <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-        <IconButton size="large" aria-label="menu" onClick={handleOpenNavMenu} color="inherit">
-          <MenuIcon />
-        </IconButton>
-        <Menu id="menu-appbar" anchorEl={anchorElNav} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu}>
-          {pages.map((page) => (
-            <MenuItem key={page} onClick={() => handleMenuItemClick(page)}>
-              <Typography textAlign="center">{page}</Typography>
-            </MenuItem>
-          ))}
-        </Menu>
-      </Box>
-      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-      </Box>
-      <Box sx={{ flexGrow: 0 }}>
-        <IconButton>
-          {notifEnabled ? (
-            <FaBell onClick={handleClose}
-              title='disable notifications'
-              style={{ fontSize: '40px', color: 'white' }} />
-          ) : (
-            <FaBellSlash onClick={handleClick}
-              title='enable notifications'
-              style={{ fontSize: '40px', color: 'white' }} />
-          )}
-        </IconButton>
-      </Box>
-    </Toolbar>
-  </Container>
-</AppBar>
+      <AppBar position="static" style={{ backgroundColor: '#8b8b8b' }}>
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <img src={mdsIcon} alt="mds" style={{ width: "120px", height: "120px" }} />
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+              <IconButton size="large" aria-label="menu" onClick={handleOpenNavMenu} color="inherit">
+                <MenuIcon />
+              </IconButton>
+            </Box>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
-
-      <div style={{ display: 'flex', gap: '5px', justifyContent: "space-between", margin: "20px"}}>
+            </Box>
+            <Box sx={{ flexGrow: 0 }}>
+              <IconButton>
+                {notifEnabled ? (
+                  <FaBell onClick={handleClose}
+                    title='disable notifications'
+                    style={{ fontSize: '40px', color: 'black' }} />
+                ) : (
+                  <FaBellSlash onClick={handleClick}
+                    title='enable notifications'
+                    style={{ fontSize: '40px', color: 'black' }} />
+                )}
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+      <div style={{ display: 'flex', gap: '5px', justifyContent: "space-between", margin: "20px" }}>
         <div style={{
-          flex: '0 1 49%',
-          backgroundColor: '#e0e0e0',
+          flex: '0 1 47%',
+          height: '65vh',
+          backgroundColor: '#a0a0a0',
           borderRadius: '25px',
-          boxShadow: '31px 31px 65px #c1c1c1, -31px -31px 65px #ffffff',
+          boxShadow: '11px 11px 22px #303030, -11px -11px 22px #969696;',
           padding: '20px',
         }}>
           <Location />
         </div>
         <div style={{
-          flex: '0 1 49%',
-          backgroundColor: '#e0e0e0',
+          flex: '0 1 47%',
+          height: '65vh',
+          backgroundColor: '#a0a0a0',
           borderRadius: '25px',
-          boxShadow: '31px 31px 65px #c1c1c1, -31px -31px 65px #ffffff',
+          boxShadow: '11px 11px 22px #303030, -11px -11px 22px #969696;',
           padding: '20px'
         }}>
           <Voice />

@@ -6,6 +6,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #636363;
+  min-height: "100%";
 }
 
 code {
@@ -17,6 +19,7 @@ code {
   text-align: center;
   align-items: center;
   vertical-align: middle;
+
 }
 
 .App-logo {
@@ -57,7 +60,7 @@ code {
 .voiceContainer{
   display: flex;
   flex-direction: column;
-  background-color: hsl(0,0%,5%);
+  background-color: #0d0d0d;
 }
 
 .voiceContainer *{

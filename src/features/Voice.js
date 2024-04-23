@@ -4,13 +4,13 @@ const SpeechRecognition =
 const SpeechGrammarList =
   window.SpeechGrammarList || window.webkitSpeechGrammarList;
 
-navigator.mediaDevices.getUserMedia({ audio: true })
+/*navigator.mediaDevices.getUserMedia({ audio: true })
   .then(function(stream) {
     console.log('You let me use your mic!')
   })
   .catch(function(err) {
     console.log('No mic for you!')
-  });
+  });*/
 
 const levenshteinDistance = (s, t) => {
   if (!s.length) return t.length;

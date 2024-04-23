@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -53,13 +54,90 @@ code {
   }
 }
 
+#root{
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+
+
+.voiceContainer{
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(0,0%,5%);
+  min-height: 100vh;
+  min-width: 100vw;
+  gap: 8rem;
+  padding: 8rem 0 0;
+}
+
+.voiceContainer *{
+  margin: 0;
+  padding:0;
+  color: hsl(0,0%,80%);
+}
+
+.timeUp,.timeDown{
+  color: hsl(0,0%,50%);
+}
 
 .timeContainer{
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  background-color: hsl(0,0%,10%);
 }
 
-.voiceContainer{
-  background-color: hsl(0,0%,90%);
+.timeContainer p{
+  font-size: 7rem;
+  line-height: 7rem;
+  text-align: center;
+  letter-spacing: 1rem;
+  font-family: monospace;
+}
+
+.split{
+  height: 100%;
+  width: 0.25rem;
+  position: absolute;
+  left:calc(50% - 0.125rem);
+  background-color: hsl(0,0%,80%);
+}
+
+.split::before{
+  content:"";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left:0;
+  top:0;
+  background: linear-gradient(
+    180deg, 
+    hsl(0,0%,5%) 0%, 
+    rgba(0,0,0,0) 45%, 
+    rgba(0,0,0,0) 55%, 
+    hsl(0,0%,5%) 100%
+  );
+}
+
+.timeContainer::before{
+  content:"";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left:0;
+  top:0;
+  background: linear-gradient(
+    180deg, 
+    hsl(0,0%,5%) 0%, 
+    rgba(0,0,0,0) 45%, 
+    rgba(0,0,0,0) 55%, 
+    hsl(0,0%,5%) 100%
+  );
+}
+
+.click{
+  font-size: 3rem;
+  text-align: center;
+  color: hsl(0,0%,80%);
 }

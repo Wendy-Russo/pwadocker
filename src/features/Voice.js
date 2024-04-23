@@ -44,6 +44,24 @@ const leastDistance = (arr,str) => {
   return minDist
 }
 
+const pad = (nbr) => {
+  return ('0' + nbr).slice(-2)
+}
+
+const getMin = (nbr) => {
+  if(nbr < 0){
+    return 59
+  }
+  return Math.floor((nbr)/60)
+}
+
+const getSec = (nbr) => {
+  if(nbr < 0){
+    return 59
+  }
+  return (nbr%60) 
+}
+
 const recognition = new SpeechRecognition();
 const speechRecognitionList = new SpeechGrammarList();
 recognition.grammars = speechRecognitionList;
@@ -82,9 +100,12 @@ function Voice(){
     };
   }, [isTimer]); 
 
+  const secsPrev = seconds > 0 ? seconds-1 : seconds;
+  const secsNext = seconds+1;
+
   return(
     <div
-      className={`voiceContainer user-select-none card card-body m-4 p-0 ${isRecording ? 'shadow' : 'shadow-sm'}`} 
+      className={`voiceContainer`} 
       onMouseDown={() => {
         recognition.start();
         setRecording(true)
@@ -98,39 +119,30 @@ function Voice(){
         setRecording(false)
       }}
     >
-      <h2
-        className="card-header "
-      >
-          Voice feature
-      </h2>
+      
       <div
-        className={`card-body d-flex flex-row `}
+        className="timeContainer"
       >
-        <div
-          className="col-8 d-flex justify-content-center align-items-center fs-3 "
-        >
-          {
-            isRecording ? <p>Recording</p> : <p>Click to record</p>
-          }
-          </div>
-        <div
-          className="col-4"
-        >
-          <div
-            className="timeContainer d-flex display-1"
-          >
-            <p>
-              { ('0' + Math.floor(seconds/60)).slice(-2) + ":"}
-            </p>
-            <p>
-              {('0' + seconds%60).slice(-2)}
-            </p>
-          </div>
+        <div className="split">
+        
         </div>
+        <p className="timeUp">
+          { pad(getMin(seconds-60)) + " " + pad(getSec(seconds-1))}
+        </p>
+        <p className="timeCenter">
+          { pad(getMin(seconds)) + " " + pad(getSec(seconds))}
+        </p>
+        <p className="timeDown">
+          { pad(getMin(seconds+60)) + " " + pad(getSec(seconds+1))}
+        </p>
       </div>
+      {
+        isRecording ? 
+        <p className="click">Recording</p> : 
+        <p className="click">Click to record</p>
+      }
     </div> 
   )
 }
 
 export default Voice
-

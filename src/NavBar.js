@@ -81,6 +81,7 @@ function ResponsiveAppBar() {
     }
   };
   return (
+<<<<<<< HEAD
     <div>
       <AppBar position="static" style={{ backgroundColor: '#9e9e9e' }}>
   <Container maxWidth="xl">
@@ -139,6 +140,49 @@ function ResponsiveAppBar() {
         </div>
       </div>
     </div>
+=======
+    <>
+      <AppBar position="static" sx={{ backgroundColor: '#9e9e9e' }}>
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <img src={mdsIcon} alt="mds" style={{ width: "90px", height: "90px" }} />
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+              <IconButton size="large" aria-label="menu" onClick={handleOpenNavMenu} color="inherit">
+                <MenuIcon />
+              </IconButton>
+              <Menu id="menu-appbar" anchorEl={anchorElNav} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu}>
+                {pages.map((page) => (
+                  <MenuItem key={page} onClick={() => handleMenuItemClick(page)}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', marginLeft: '-40px' }}>
+              {pages.map((page, index) => (
+                <Button key={page} onClick={() => handleMenuItemClick(page)} 
+                sx={{ my: 2, mx: 3, color: 'white', display: 'block' }}>
+                  {page}
+                </Button>
+              ))}
+              <IconButton>
+                {notifEnabled ? (
+                  <FaBell onClick={handleClose} 
+                  title='disable notifications'
+                  style={{ fontSize: '40px' }}/>
+                ) : (
+                  <FaBellSlash onClick={handleClick} 
+                  title='enable notifications'
+                  style={{ fontSize: '40px' }}/>
+                )}
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+      {renderComponent()}
+    </>
+>>>>>>> wendy-voice
   );
 }
 

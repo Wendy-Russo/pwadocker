@@ -1,14 +1,10 @@
 import React from 'react';
-import Location from './features/Location';
-import Notifications from './features/Notifications';
-import Voice from './features/Voice';
+import NavBar from './NavBar';
 
 function App() {
   return (
     <div className="App">
-      <Location/>
-      <Notifications/>
-      <Voice/>
+      <NavBar />
     </div>
   );
 }

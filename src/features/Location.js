@@ -39,7 +39,6 @@ function MapComponent() {
   return (
     <>
     <div style={{ display: 'grid', justifyContent: 'center', alignItems: 'center', height: '50vh', marginTop: "20px" }}>
-      <h2>Location</h2>
       <MapContainer
         center={{ lat: 50.1109, lng: 0.1313 }} // Roughly centered between London and Paris
         zoom={6}

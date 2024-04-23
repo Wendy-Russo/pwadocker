@@ -101,7 +101,7 @@ function Voice(){
       <h2
         className="card-header "
       >
-          Voice feature
+          Voice recorder
       </h2>
       <div
         className={`card-body d-flex flex-row `}

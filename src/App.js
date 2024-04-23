@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Location from './features/Location';
 import Notifications from './features/Notifications';
 import Voice from './features/Voice';
@@ -9,6 +9,7 @@ function App() {
       <Location/>
       <Notifications/>
       <Voice/>
+
     </div>
   );
 }

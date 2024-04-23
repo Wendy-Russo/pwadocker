@@ -50,3 +50,14 @@ code {
     transform: rotate(360deg);
   }
 }
+
+
+.timeContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.voiceContainer{
+  background-color: hsl(0,0%,90%);
+}

@@ -59,7 +59,7 @@ function ResponsiveAppBar() {
   }, [intervalId]);
 
   return (
-    <div>
+    <>
       <AppBar position="static" style={{ backgroundColor: '#8b8b8b' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
@@ -88,29 +88,30 @@ function ResponsiveAppBar() {
           </Toolbar>
         </Container>
       </AppBar>
-      <div style={{ display: 'flex', gap: '5px', justifyContent: "space-between", margin: "20px" }}>
+      <div className='main'>
         <div style={{
-          flex: '0 1 47%',
-          height: '65vh',
           backgroundColor: '#a0a0a0',
-          borderRadius: '25px',
+          borderRadius: '2rem',
           boxShadow: '11px 11px 22px #303030, -11px -11px 22px #969696;',
-          padding: '20px',
+          boxSizing:'border-box',
+          flex:'1',
+          overflow:'hidden',
+          border: '1px solid rgba(1,1,1,0.4)'
         }}>
           <Location />
         </div>
         <div style={{
-          flex: '0 1 47%',
-          height: '65vh',
           backgroundColor: '#a0a0a0',
-          borderRadius: '25px',
+          borderRadius: '2rem',
           boxShadow: '11px 11px 22px #303030, -11px -11px 22px #969696;',
-          padding: '20px'
+          flex:'1',
+          overflow:'hidden',
+          border: '1px solid rgba(1,1,1,0.4)'
         }}>
           <Voice />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

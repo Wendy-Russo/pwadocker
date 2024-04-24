@@ -43,12 +43,22 @@ function MapComponent() {
 
   return (
     <>
-    <div style={{ display: 'grid', justifyContent: 'center', alignItems: 'center'}}>
+    <div style={{
+      display: 'grid', 
+      justifyContent: 'center', 
+      alignItems: 'center',
+      height:'100%',
+      width:'100%'
+    }}>
       <MapContainer
         center={{ lat: 50.1109, lng: 0.1313 }}
         zoom={6}
         scrollWheelZoom={false}
-        style={{ height: '59vh', width: '100vh' }}
+        style={{ 
+          height: '100%', 
+          width: '100vh',
+          filter:'brightness(0.75) contrast(1.5)'
+        }}
         whenCreated={setMap}
         
       >

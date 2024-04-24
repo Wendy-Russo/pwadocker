@@ -69,7 +69,7 @@ recognition.maxAlternatives = 3;
 recognition.interimResults = true;
 
 function Voice(){
-  const [isRecording,setRecording] = useState()
+  const [isRecording,setRecording] = useState(false)
   const [seconds,setSeconds] = useState(0)
   const [isTimer,setTimer] = useState(false)
    
@@ -81,7 +81,7 @@ function Voice(){
     }, 1000);     
     
     const recOnResut = (event) => {
-      
+      console.log("result")
       for (let i = 0; i < event.results.length; i++) {
         const element = event.results[i];
         for (let j = 0; j < element.length; j++) {
@@ -101,10 +101,16 @@ function Voice(){
       
     }
 
+    const onEnd = () => {
+      setRecording(false)
+    }
+
     recognition.onresult = recOnResut;
+    recognition.onEnd = onEnd;
 
     return () => {
       recognition.onresult = () => {};
+      recognition.onEnd = () => {};
       clearInterval(interval)
     };
   }, [isTimer]); 

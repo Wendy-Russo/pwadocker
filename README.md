@@ -21,6 +21,11 @@ encourage the user to stay hydrated and active.
 Geolocation : 
 
 Voice recorder : 
+1. Allow your browser to use the microphone
+2. Allow the website to use your microphone
+3. Press anywhere in the timer section to enable recording
+4. Say 'commence','start','demarre','continue' or 'reprends' to start the timer and 'stop','tape','arete','pause'to stop it.
+***Some spartphones might automatically disable the microphone***
 
 Notification system : 
 When the user click on the bell icon, he can allow notifications and then will receive push notification for encourage him to stay hydrated and active.

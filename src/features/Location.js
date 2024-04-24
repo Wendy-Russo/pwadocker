@@ -9,7 +9,7 @@ function LocationMarker({ positions, setPositions }) {
   const map = useMapEvents({
     locationfound(e) {
       const newPosition = e.latlng;
-      console.log('Location found:', newPosition);
+      //console.log('Location found:', newPosition);
 
       setPositions(prevPositions => {
         const newPositions = [...prevPositions, newPosition];
@@ -23,7 +23,7 @@ function LocationMarker({ positions, setPositions }) {
       if (map) map.flyTo(newPosition, map.getZoom());
     },
     locationerror(e) {
-      console.error('Location error:', e.message);
+      //console.error('Location error:', e.message);
     }
   });
 

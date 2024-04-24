@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
-const SpeechGrammarList =
-  window.SpeechGrammarList || window.webkitSpeechGrammarList;
 
 navigator.mediaDevices.getUserMedia({ audio: true })
   .then(function(stream) {
@@ -63,12 +61,12 @@ const getSec = (nbr) => {
 }
 
 const recognition = new SpeechRecognition();
-const speechRecognitionList = new SpeechGrammarList();
-recognition.grammars = speechRecognitionList;
+
 recognition.continuous = true;
 recognition.lang = "fr-FR";
 recognition.interimResults = true;
-recognition.maxAlternatives = 1;
+recognition.maxAlternatives = 3;
+recognition.interimResults = true;
 
 function Voice(){
   const [isRecording,setRecording] = useState()
@@ -83,13 +81,24 @@ function Voice(){
     }, 1000);     
     
     const recOnResut = (event) => {
-      const wordlocal = event.results[0][0].transcript
-      if(leastDistance(['commence','start','demarre'],wordlocal) < 4){
-        setTimer(true)
+      
+      for (let i = 0; i < event.results.length; i++) {
+        const element = event.results[i];
+        for (let j = 0; j < element.length; j++) {
+          const sentence = element[j].transcript.split(" ");
+          for(let k = 0 ; k < sentence.length; k++){
+            const wordlocal = sentence[k];
+            //console.log(wordlocal)
+            if(leastDistance(['commence','start','demarre','continue','reprends'],wordlocal) < 3){
+              setTimer(true)
+            }
+            else if(leastDistance(['stop','tape','arete','pause'],wordlocal) < 3 ){
+              setTimer(false)
+            }
+          }
+        }
       }
-      else if(leastDistance(['stop','tape','arete'],wordlocal) < 4 ){
-        setTimer(false)
-      }
+      
     }
 
     recognition.onresult = recOnResut;
@@ -99,9 +108,6 @@ function Voice(){
       clearInterval(interval)
     };
   }, [isTimer]); 
-
-  const secsPrev = seconds > 0 ? seconds-1 : seconds;
-  const secsNext = seconds+1;
 
   return(
     <div

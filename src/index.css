@@ -89,7 +89,6 @@ code {
   flex-direction: column;
   position: relative;
   width: 100%;
-  background-color: hsl(0,0%,15%);
 }
 
 .timeContainer p{
@@ -142,9 +141,10 @@ code {
 }
 
 .click{
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: center;
-  color: hsl(0,0%,80%);
+  font-style: italic;
+  color: hsl(0,0%,50%);
 }
 
 

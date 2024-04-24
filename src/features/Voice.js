@@ -84,10 +84,10 @@ function Voice(){
     
     const recOnResut = (event) => {
       const wordlocal = event.results[0][0].transcript
-      if(leastDistance(['commence','start'],wordlocal) < 3){
+      if(leastDistance(['commence','start','demarre'],wordlocal) < 4){
         setTimer(true)
       }
-      else if(leastDistance(['stop','tape','arete'],wordlocal) < 3 ){
+      else if(leastDistance(['stop','tape','arete'],wordlocal) < 4 ){
         setTimer(false)
       }
     }
@@ -106,20 +106,17 @@ function Voice(){
   return(
     <div
       className={`voiceContainer`} 
-      onMouseDown={() => {
-        recognition.start();
-        setRecording(true)
-      }}
-      onMouseUp={() => {
-        recognition.stop()
-        setRecording(false)
-      }}
-      onMouseLeave={() => {
-        recognition.stop()
-        setRecording(false)
+      onClick={() => {
+        if(isRecording){
+          recognition.stop();
+          setRecording(false)
+        }
+        else{
+          recognition.start();
+          setRecording(true)
+        }
       }}
     >
-      
       <div
         className="timeContainer"
       >
@@ -139,7 +136,7 @@ function Voice(){
       {
         isRecording ? 
         <p className="click">Recording</p> : 
-        <p className="click">Click to record</p>
+        <p className="click">Click anywhere to record</p>
       }
     </div> 
   )

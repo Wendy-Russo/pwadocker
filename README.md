@@ -18,7 +18,12 @@ encourage the user to stay hydrated and active.
 
 ## Features
 
-Geolocation : 
+Geolocation :
+
+Third package leaflet is used to display a map and interact with it.
+native function navigator.geolocation is used to get the user's position.
+The position is saved in the local storage and displayed on the map using a leaflet marker.
+
 
 Voice recorder : 
 

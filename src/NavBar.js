@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, MenuItem } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { AppBar, Box, Toolbar, IconButton,  Container, } from '@mui/material';
 import mdsIcon from "./images/mds.png";
 import Location from './features/Location';
 import Voice from './features/Voice';
@@ -9,7 +8,6 @@ import { FaBell, FaBellSlash } from 'react-icons/fa';
 const pages = ['Location', 'Voice'];
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [intervalId, setIntervalId] = useState(null);
   const [notifEnabled, setNotifEnabled] = useState(false);
 
@@ -43,9 +41,6 @@ function ResponsiveAppBar() {
       });
     }
   };
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
 
   const handleClose = () => {
     clearInterval(intervalId);
@@ -63,11 +58,8 @@ function ResponsiveAppBar() {
       <AppBar position="static" style={{ backgroundColor: '#8b8b8b' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <img src={mdsIcon} alt="mds" style={{ width: "120px", height: "120px" }} />
+            <img src={mdsIcon} alt="mds" style={{ width: "70px", height: "70px" }} />
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-              <IconButton size="large" aria-label="menu" onClick={handleOpenNavMenu} color="inherit">
-                <MenuIcon />
-              </IconButton>
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
